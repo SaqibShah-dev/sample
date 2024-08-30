@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 const Navbar = (props) => {
   return (
@@ -9,9 +8,9 @@ const Navbar = (props) => {
         className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
       >
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <a className="navbar-brand" href="#">
             {props.title}
-          </Link>
+          </a>
           <button
             className="navbar-toggler"
             type="button"
@@ -26,14 +25,14 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/textform">
+                <a className="nav-link active" aria-current="page" href="textform">
                   Home
-                </Link>
+                </a>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/about">
+                <a className="nav-link" href="about">
                   {props.aboutText}
-                </Link>
+                </a>
               </li>
             </ul>
             <form className="d-flex" role="search">
@@ -64,20 +63,6 @@ const Navbar = (props) => {
                 htmlFor="flexSwitchCheckDefault"
               >
                 Enable Mode
-              </label>
-            </div>
-            <div className={`form-check form-switch
-              text-${props.yellow === "light"?"yellow":"light"}`
-             }>
-              <input
-               className="form-check-input"
-                type="checkbox"
-                role="switch"
-                id="flexSwitchCheckDefault"
-                onClick={props.yellowMode}
-              />
-              <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-                Enable Yellow mode
               </label>
             </div>
           </div>

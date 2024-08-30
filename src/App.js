@@ -1,21 +1,19 @@
 import "./App.css";
 import Alert from "./components/Alert";
-import About from "./components/About";
+// import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import React, { useState } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route
+// } from "react-router-dom";
 
 function App() {
 
   const [mode, setMode] = useState('light');
   const [alert, setAlert] = useState(null);
-  const [yellow, setYellow] = useState('light')
 
   const showAlert = (message, type)=>{
     setAlert({
@@ -40,35 +38,24 @@ function App() {
       document.title = 'TextUtills - Light Mode';
     }
   }
-  const yellowMode = ()=>{
-    if(yellow === 'light'){
-      setYellow('yellow')
-      document.body.style.backgroundColor = "yellow";
-      showAlert("Yellow mode has been enabled","success");
-    }
-    else{
-      setYellow('light')
-      document.body.style.backgroundColor = "light";
-      showAlert("Light mode has been enabled","success");
-    }
-  }
   return (
     <>
-    <Router>
+    {/* <Router> */}
       {/* <Navbar title="TextUtills" mode={mode} aboutText="About TextUtills" /> */}
-      <Navbar title="textutills" aboutText="About" yellow={yellow} yellowMode={yellowMode}  mode={mode} toggleMode={toggleMode}/>
+      <Navbar title="textutills" aboutText="About" mode={mode} toggleMode={toggleMode}/>
       <Alert alert={alert}/>
       <div className="container">
-      <Routes>
+      {/* <Routes>
           <Route  path="/about" element={<About />}>
           </Route>
           <Route  path="/textform"
            element= {<TextForm heading="Enter the text to analyze below" yellow={yellow} showAlert={showAlert} mode={mode}/>}
           >
           </Route>
-        </Routes>
+        </Routes> */}
+        <TextForm heading="Enter the text to analyze below" showAlert={showAlert} mode={mode}/>
       </div>
-      </Router>
+      {/* </Router> */}
     </>
   );
 }
